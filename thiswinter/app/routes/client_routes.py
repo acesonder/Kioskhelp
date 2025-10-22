@@ -6,7 +6,13 @@ Handles questionnaires, cases, and task viewing
 from flask import Blueprint, render_template, request, jsonify, session, redirect, url_for
 import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
+
+# Fix imports
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(os.path.dirname(current_dir))
+grandparent_dir = os.path.dirname(parent_dir)
+sys.path.insert(0, parent_dir)
+sys.path.insert(0, grandparent_dir)
 
 from kioskhelp import KioskHelpSystem
 import datetime

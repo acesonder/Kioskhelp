@@ -5,13 +5,28 @@ Admin portal routes with advanced troubleshooting and management tools
 from flask import Blueprint, render_template, request, jsonify, session, redirect, url_for
 import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
+
+# Fix imports
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(os.path.dirname(current_dir))
+grandparent_dir = os.path.dirname(parent_dir)
+sys.path.insert(0, parent_dir)
+sys.path.insert(0, grandparent_dir)
 
 from kioskhelp import KioskHelpSystem
 from app.models.theme_manager import ThemeManager
 from app.models.widget_manager import WidgetManager
 from app.models.feature_manager import FeatureManager
-import config.settings as settings
+
+# Import settings
+try:
+    from config import settings
+except ImportError:
+    # Fallback settings
+    class settings:
+        ADMIN_USERNAME = 'admin'
+        ADMIN_PASSWORD = 'changeme123'
+
 import datetime
 
 bp = Blueprint('admin', __name__, url_prefix='/admin')

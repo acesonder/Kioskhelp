@@ -8,14 +8,24 @@ import sys
 import os
 
 # Add parent directory to path to import KioskHelp modules
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir)
 
 from kioskhelp import KioskHelpSystem
 from app.routes import client_routes, admin_routes
 from app.models.theme_manager import ThemeManager
 from app.models.widget_manager import WidgetManager
 from app.models.feature_manager import FeatureManager
-import config.settings as settings
+
+# Import settings with fallback
+try:
+    from config import settings
+except ImportError:
+    class settings:
+        SECRET_KEY = 'dev-secret-key-change-in-production'
+        APP_NAME = 'KioskHelp Web Portal'
+        APP_VERSION = '2.0.0'
 
 app = Flask(__name__)
 app.secret_key = settings.SECRET_KEY
