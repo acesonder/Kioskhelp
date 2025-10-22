@@ -1,0 +1,5 @@
+/* warm-orange Theme */
+:root {
+    --theme-name: "warm-orange";
+}
+body { transition: all 0.3s ease; }

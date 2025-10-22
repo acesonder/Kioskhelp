@@ -1,0 +1,5 @@
+/* material-design Theme */
+:root {
+    --theme-name: "material-design";
+}
+body { transition: all 0.3s ease; }

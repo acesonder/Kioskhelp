@@ -1,0 +1,5 @@
+/* pastel-pink Theme */
+:root {
+    --theme-name: "pastel-pink";
+}
+body { transition: all 0.3s ease; }

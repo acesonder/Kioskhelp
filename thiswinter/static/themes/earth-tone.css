@@ -1,0 +1,5 @@
+/* earth-tone Theme */
+:root {
+    --theme-name: "earth-tone";
+}
+body { transition: all 0.3s ease; }

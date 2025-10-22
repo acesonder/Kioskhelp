@@ -1,0 +1,5 @@
+/* bootstrap-inspired Theme */
+:root {
+    --theme-name: "bootstrap-inspired";
+}
+body { transition: all 0.3s ease; }
