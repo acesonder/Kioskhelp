@@ -1,0 +1,331 @@
+{% extends "base.html" %}
+
+{% block title %}Questionnaire - {{ app_name }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-10 mx-auto">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">
+                    <i class="fas fa-clipboard-list"></i> Comprehensive Assessment Questionnaire
+                </h3>
+                <p class="mb-0 mt-2">Please answer the following questions to help us understand your needs better.</p>
+            </div>
+            <div class="card-body p-4">
+                <form id="questionnaireForm">
+                    <!-- Housing Section -->
+                    <div class="section-block mb-4">
+                        <h4 class="section-title text-primary mb-3">
+                            <i class="fas fa-home"></i> Housing
+                        </h4>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Current Housing Status</label>
+                            <select class="form-select" name="housing_status" required>
+                                <option value="">Please select...</option>
+                                <option value="Homeless">Homeless (on the street)</option>
+                                <option value="Emergency Shelter">Emergency Shelter</option>
+                                <option value="Transitional Housing">Transitional Housing</option>
+                                <option value="Temporary with Family/Friends">Temporary with Family/Friends</option>
+                                <option value="Renting">Renting</option>
+                                <option value="Homeowner">Homeowner</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Please describe your current housing situation in detail</label>
+                            <textarea class="form-control" name="housing_details" rows="3" placeholder="Include any safety concerns, stability issues, or special circumstances"></textarea>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Do you have safety concerns about your housing?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="housing_safety" value="yes" id="housing_safety_yes">
+                                <label class="form-check-label" for="housing_safety_yes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="housing_safety" value="no" id="housing_safety_no" checked>
+                                <label class="form-check-label" for="housing_safety_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Food Security Section -->
+                    <div class="section-block mb-4">
+                        <h4 class="section-title text-primary mb-3">
+                            <i class="fas fa-utensils"></i> Food Security
+                        </h4>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Do you have reliable access to enough food?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="food_security" value="yes" id="food_yes">
+                                <label class="form-check-label" for="food_yes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="food_security" value="no" id="food_no" checked>
+                                <label class="form-check-label" for="food_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Healthcare Section -->
+                    <div class="section-block mb-4">
+                        <h4 class="section-title text-primary mb-3">
+                            <i class="fas fa-heartbeat"></i> Healthcare
+                        </h4>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Do you have access to healthcare services?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="healthcare_access" value="yes" id="healthcare_yes">
+                                <label class="form-check-label" for="healthcare_yes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="healthcare_access" value="no" id="healthcare_no" checked>
+                                <label class="form-check-label" for="healthcare_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mental Health Section -->
+                    <div class="section-block mb-4">
+                        <h4 class="section-title text-primary mb-3">
+                            <i class="fas fa-brain"></i> Mental Health
+                        </h4>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Do you currently receive mental health support?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="mental_health_support" value="yes" id="mh_support_yes">
+                                <label class="form-check-label" for="mh_support_yes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="mental_health_support" value="no" id="mh_support_no" checked>
+                                <label class="form-check-label" for="mh_support_no">No</label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Are you currently receiving mental health services?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="mental_health_current" value="yes" id="mh_current_yes">
+                                <label class="form-check-label" for="mh_current_yes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="mental_health_current" value="no" id="mh_current_no" checked>
+                                <label class="form-check-label" for="mh_current_no">No</label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Do you need crisis mental health support?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="mental_health_crisis" value="yes" id="mh_crisis_yes">
+                                <label class="form-check-label" for="mh_crisis_yes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="mental_health_crisis" value="no" id="mh_crisis_no" checked>
+                                <label class="form-check-label" for="mh_crisis_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Employment Section -->
+                    <div class="section-block mb-4">
+                        <h4 class="section-title text-primary mb-3">
+                            <i class="fas fa-briefcase"></i> Employment
+                        </h4>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Current Employment Status</label>
+                            <select class="form-select" name="employment_status" required>
+                                <option value="">Please select...</option>
+                                <option value="Employed Full-Time">Employed Full-Time</option>
+                                <option value="Employed Part-Time">Employed Part-Time</option>
+                                <option value="Unemployed">Unemployed</option>
+                                <option value="Seeking Employment">Seeking Employment</option>
+                                <option value="Disabled">Disabled</option>
+                                <option value="Retired">Retired</option>
+                                <option value="Student">Student</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Are you actively searching for employment?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="employment_search" value="yes" id="emp_search_yes">
+                                <label class="form-check-label" for="emp_search_yes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="employment_search" value="no" id="emp_search_no" checked>
+                                <label class="form-check-label" for="emp_search_no">No</label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Are you interested in job training or skill development?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="employment_training" value="yes" id="emp_training_yes">
+                                <label class="form-check-label" for="emp_training_yes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="employment_training" value="no" id="emp_training_no" checked>
+                                <label class="form-check-label" for="emp_training_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Legal Issues Section -->
+                    <div class="section-block mb-4">
+                        <h4 class="section-title text-primary mb-3">
+                            <i class="fas fa-balance-scale"></i> Legal Support
+                        </h4>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Do you have any legal issues or need legal assistance?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="legal_issues" value="yes" id="legal_yes">
+                                <label class="form-check-label" for="legal_yes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="legal_issues" value="no" id="legal_no" checked>
+                                <label class="form-check-label" for="legal_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Transportation Section -->
+                    <div class="section-block mb-4">
+                        <h4 class="section-title text-primary mb-3">
+                            <i class="fas fa-car"></i> Transportation
+                        </h4>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Do you have reliable transportation?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="transportation" value="yes" id="trans_yes">
+                                <label class="form-check-label" for="trans_yes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="transportation" value="no" id="trans_no" checked>
+                                <label class="form-check-label" for="trans_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Immediate Needs Section -->
+                    <div class="section-block mb-4">
+                        <h4 class="section-title text-primary mb-3">
+                            <i class="fas fa-exclamation-circle"></i> Immediate Needs
+                        </h4>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">What are your most immediate needs? (Select all that apply)</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="immediate_needs" value="Shelter" id="need_shelter">
+                                <label class="form-check-label" for="need_shelter">Emergency Shelter</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="immediate_needs" value="Food" id="need_food">
+                                <label class="form-check-label" for="need_food">Food</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="immediate_needs" value="Mental health services" id="need_mental">
+                                <label class="form-check-label" for="need_mental">Mental Health Services</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="immediate_needs" value="Employment" id="need_employment">
+                                <label class="form-check-label" for="need_employment">Employment Assistance</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="immediate_needs" value="Healthcare" id="need_healthcare">
+                                <label class="form-check-label" for="need_healthcare">Healthcare Services</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="immediate_needs" value="Legal assistance" id="need_legal">
+                                <label class="form-check-label" for="need_legal">Legal Assistance</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="immediate_needs" value="Transportation" id="need_transportation">
+                                <label class="form-check-label" for="need_transportation">Transportation</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg px-5">
+                            <i class="fas fa-paper-plane"></i> Submit Assessment
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.section-block {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #0d6efd;
+}
+.section-title {
+    font-weight: 600;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+}
+</style>
+
+<script>
+$(document).ready(function() {
+    $('#questionnaireForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        // Collect form data
+        var formData = {
+            housing_status: $('select[name="housing_status"]').val(),
+            housing_details: $('textarea[name="housing_details"]').val(),
+            housing_safety: $('input[name="housing_safety"]:checked').val(),
+            food_security: $('input[name="food_security"]:checked').val(),
+            healthcare_access: $('input[name="healthcare_access"]:checked').val(),
+            mental_health_support: $('input[name="mental_health_support"]:checked').val(),
+            mental_health_current: $('input[name="mental_health_current"]:checked').val(),
+            mental_health_crisis: $('input[name="mental_health_crisis"]:checked').val(),
+            employment_status: $('select[name="employment_status"]').val(),
+            employment_search: $('input[name="employment_search"]:checked').val(),
+            employment_training: $('input[name="employment_training"]:checked').val(),
+            legal_issues: $('input[name="legal_issues"]:checked').val(),
+            transportation: $('input[name="transportation"]:checked').val(),
+            immediate_needs: []
+        };
+        
+        // Collect immediate needs checkboxes
+        $('input[name="immediate_needs"]:checked').each(function() {
+            formData.immediate_needs.push($(this).val());
+        });
+        
+        // Submit via AJAX
+        $.ajax({
+            url: '/client/submit-questionnaire',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(formData),
+            success: function(response) {
+                if (response.success) {
+                    alert('Assessment completed successfully! Your personalized support plan has been created.');
+                    window.location.href = response.redirect;
+                } else {
+                    alert('Error: ' + response.message);
+                }
+            },
+            error: function(xhr) {
+                alert('An error occurred. Please try again.');
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

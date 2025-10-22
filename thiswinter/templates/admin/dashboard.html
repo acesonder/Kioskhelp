@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - {{ app_name }}{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h2 class="mb-3">
+            <i class="fas fa-tachometer-alt"></i> Admin Dashboard
+        </h2>
+        <p class="text-muted">Welcome back, {{ session.admin_username }}! Here's your system overview.</p>
+    </div>
+</div>
+
+<!-- Statistics Cards -->
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card bg-primary text-white shadow">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="text-uppercase mb-1">Total Clients</h6>
+                        <h2 class="mb-0">{{ stats.total_clients }}</h2>
+                    </div>
+                    <div>
+                        <i class="fas fa-users fa-3x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card bg-success text-white shadow">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="text-uppercase mb-1">Active Cases</h6>
+                        <h2 class="mb-0">{{ stats.active_cases }}</h2>
+                    </div>
+                    <div>
+                        <i class="fas fa-folder-open fa-3x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card bg-warning text-white shadow">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="text-uppercase mb-1">Pending Referrals</h6>
+                        <h2 class="mb-0">{{ stats.pending_referrals }}</h2>
+                    </div>
+                    <div>
+                        <i class="fas fa-exchange-alt fa-3x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card bg-info text-white shadow">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="text-uppercase mb-1">Active Features</h6>
+                        <h2 class="mb-0">{{ stats.active_features }}</h2>
+                    </div>
+                    <div>
+                        <i class="fas fa-toggle-on fa-3x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card shadow">
+            <div class="card-header bg-light">
+                <h5 class="mb-0"><i class="fas fa-bolt"></i> Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <a href="/admin/clients" class="btn btn-outline-primary btn-lg w-100">
+                            <i class="fas fa-users d-block mb-2 fa-2x"></i>
+                            Manage Clients
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="/admin/cases" class="btn btn-outline-success btn-lg w-100">
+                            <i class="fas fa-folder-open d-block mb-2 fa-2x"></i>
+                            Manage Cases
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="/admin/themes" class="btn btn-outline-info btn-lg w-100">
+                            <i class="fas fa-palette d-block mb-2 fa-2x"></i>
+                            Customize Themes
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="/admin/features" class="btn btn-outline-warning btn-lg w-100">
+                            <i class="fas fa-sliders-h d-block mb-2 fa-2x"></i>
+                            Feature Toggles
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Management Tools -->
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-light">
+                <h5 class="mb-0"><i class="fas fa-cogs"></i> System Management</h5>
+            </div>
+            <div class="list-group list-group-flush">
+                <a href="/admin/themes" class="list-group-item list-group-item-action">
+                    <i class="fas fa-palette text-primary"></i> Theme Management (20 Themes Available)
+                </a>
+                <a href="/admin/layouts" class="list-group-item list-group-item-action">
+                    <i class="fas fa-th-large text-success"></i> Dashboard Layouts (10 Layouts)
+                </a>
+                <a href="/admin/widgets" class="list-group-item list-group-item-action">
+                    <i class="fas fa-cube text-info"></i> Widget Configuration (10 Widgets)
+                </a>
+                <a href="/admin/features" class="list-group-item list-group-item-action">
+                    <i class="fas fa-toggle-on text-warning"></i> Feature Flags (20 Features)
+                </a>
+                <a href="/admin/settings" class="list-group-item list-group-item-action">
+                    <i class="fas fa-cog text-secondary"></i> System Settings
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-light">
+                <h5 class="mb-0"><i class="fas fa-tools"></i> Troubleshooting & Analytics</h5>
+            </div>
+            <div class="list-group list-group-flush">
+                <a href="/admin/troubleshoot" class="list-group-item list-group-item-action">
+                    <i class="fas fa-wrench text-danger"></i> System Diagnostics
+                </a>
+                <a href="/admin/troubleshoot/logs" class="list-group-item list-group-item-action">
+                    <i class="fas fa-file-alt text-primary"></i> View System Logs
+                </a>
+                <a href="/admin/analytics" class="list-group-item list-group-item-action">
+                    <i class="fas fa-chart-line text-success"></i> Analytics Dashboard
+                </a>
+                <a href="/admin/reports" class="list-group-item list-group-item-action">
+                    <i class="fas fa-file-pdf text-info"></i> Generate Reports
+                </a>
+                <a href="/admin/tasks" class="list-group-item list-group-item-action">
+                    <i class="fas fa-tasks text-warning"></i> View All Tasks
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- System Status -->
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow">
+            <div class="card-header bg-light">
+                <h5 class="mb-0"><i class="fas fa-heartbeat"></i> System Status</h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <div class="p-3">
+                            <i class="fas fa-check-circle fa-3x text-success mb-2"></i>
+                            <h6>All Systems</h6>
+                            <span class="badge bg-success">Operational</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3">
+                            <i class="fas fa-database fa-3x text-success mb-2"></i>
+                            <h6>Database</h6>
+                            <span class="badge bg-success">Connected</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3">
+                            <i class="fas fa-server fa-3x text-success mb-2"></i>
+                            <h6>API Services</h6>
+                            <span class="badge bg-success">Running</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3">
+                            <i class="fas fa-tachometer-alt fa-3x text-success mb-2"></i>
+                            <h6>Performance</h6>
+                            <span class="badge bg-success">Optimal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

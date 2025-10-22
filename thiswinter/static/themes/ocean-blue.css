@@ -1,0 +1,5 @@
+/* ocean-blue Theme */
+:root {
+    --theme-name: "ocean-blue";
+}
+body { transition: all 0.3s ease; }

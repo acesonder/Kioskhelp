@@ -1,0 +1,5 @@
+/* cool-green Theme */
+:root {
+    --theme-name: "cool-green";
+}
+body { transition: all 0.3s ease; }

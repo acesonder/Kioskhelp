@@ -1,0 +1,5 @@
+/* sunset-red Theme */
+:root {
+    --theme-name: "sunset-red";
+}
+body { transition: all 0.3s ease; }

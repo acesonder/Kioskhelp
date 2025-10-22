@@ -1,0 +1,5 @@
+/* high-contrast Theme */
+:root {
+    --theme-name: "high-contrast";
+}
+body { transition: all 0.3s ease; }

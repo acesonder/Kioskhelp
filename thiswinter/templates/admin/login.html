@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Login - {{ app_name }}{% endblock %}
+
+{% block navbar %}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center" style="margin-top: 10vh;">
+    <div class="col-md-5">
+        <div class="card shadow-lg">
+            <div class="card-body p-5">
+                <div class="text-center mb-4">
+                    <i class="fas fa-user-shield fa-4x text-primary mb-3"></i>
+                    <h2 class="mb-2">Admin Portal</h2>
+                    <p class="text-muted">Sign in to access administrative features</p>
+                </div>
+                
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control form-control-lg" id="username" name="username" required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control form-control-lg" id="password" name="password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg w-100">
+                        <i class="fas fa-sign-in-alt"></i> Sign In
+                    </button>
+                </form>
+                
+                <div class="text-center mt-3">
+                    <a href="/" class="text-muted small">
+                        <i class="fas fa-arrow-left"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$('#loginForm').on('submit', function(e) {
+    e.preventDefault();
+    
+    var formData = {
+        username: $('#username').val(),
+        password: $('#password').val()
+    };
+    
+    $.ajax({
+        url: '/admin/login',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(formData),
+        success: function(response) {
+            if (response.success) {
+                window.location.href = response.redirect;
+            } else {
+                alert('Invalid credentials. Please try again.');
+            }
+        },
+        error: function(xhr) {
+            alert('Login failed. Please check your credentials.');
+        }
+    });
+});
+</script>
+{% endblock %}

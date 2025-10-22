@@ -1,0 +1,5 @@
+/* vibrant-purple Theme */
+:root {
+    --theme-name: "vibrant-purple";
+}
+body { transition: all 0.3s ease; }

@@ -1,0 +1,5 @@
+/* modern-dark Theme */
+:root {
+    --theme-name: "modern-dark";
+}
+body { transition: all 0.3s ease; }

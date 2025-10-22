@@ -1,0 +1,5 @@
+/* corporate-grey Theme */
+:root {
+    --theme-name: "corporate-grey";
+}
+body { transition: all 0.3s ease; }

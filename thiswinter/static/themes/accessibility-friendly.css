@@ -1,0 +1,5 @@
+/* accessibility-friendly Theme */
+:root {
+    --theme-name: "accessibility-friendly";
+}
+body { transition: all 0.3s ease; }

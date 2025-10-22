@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome - {{ app_name }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="text-center mb-5">
+            <h1 class="display-4 mb-3">
+                <i class="fas fa-hands-helping text-primary"></i>
+                Welcome to KioskHelp
+            </h1>
+            <p class="lead">Professional and Compassionate Support for Those Who Need It Most</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm hover-card">
+                    <div class="card-body text-center p-5">
+                        <i class="fas fa-user-plus fa-3x text-primary mb-3"></i>
+                        <h3 class="card-title">New Client</h3>
+                        <p class="card-text">Start your journey with us. Register and access comprehensive support services.</p>
+                        <a href="/client/register" class="btn btn-primary btn-lg mt-3">
+                            Get Started <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm hover-card">
+                    <div class="card-body text-center p-5">
+                        <i class="fas fa-sign-in-alt fa-3x text-success mb-3"></i>
+                        <h3 class="card-title">Returning Client</h3>
+                        <p class="card-text">Continue your progress. Access your dashboard, cases, and resources.</p>
+                        <a href="/client/dashboard" class="btn btn-success btn-lg mt-3">
+                            View Dashboard <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mt-5 shadow-sm">
+            <div class="card-body">
+                <h4 class="card-title mb-4">
+                    <i class="fas fa-info-circle text-info"></i> What We Offer
+                </h4>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <h6><i class="fas fa-check-circle text-success"></i> Comprehensive Assessment</h6>
+                        <p class="small text-muted">Identify your needs through our thorough questionnaire</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h6><i class="fas fa-check-circle text-success"></i> Case Management</h6>
+                        <p class="small text-muted">Personalized support plans with task tracking</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h6><i class="fas fa-check-circle text-success"></i> Service Referrals</h6>
+                        <p class="small text-muted">Connect with housing, employment, healthcare and more</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h6><i class="fas fa-check-circle text-success"></i> Resource Library</h6>
+                        <p class="small text-muted">Access educational materials and guides</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h6><i class="fas fa-check-circle text-success"></i> Self-Help Tools</h6>
+                        <p class="small text-muted">Budget planning, wellness tracking, and more</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h6><i class="fas fa-check-circle text-success"></i> Privacy Focused</h6>
+                        <p class="small text-muted">Your data is secure and confidential</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.hover-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+}
+</style>
+{% endblock %}
