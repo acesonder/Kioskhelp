@@ -1,0 +1,12 @@
+# KioskHelp System Requirements
+# Python 3.7+ required
+
+# Core dependencies (minimal for this implementation)
+# The system is designed to work with Python standard library
+
+# Optional dependencies for production deployment:
+# cryptography>=3.4.8  # For data encryption
+# flask>=2.0.0  # For web interface
+# sqlalchemy>=1.4.0  # For database management
+# python-dotenv>=0.19.0  # For environment configuration
+# pytz>=2021.3  # For timezone handling
